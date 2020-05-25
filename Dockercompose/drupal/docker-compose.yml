@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  drupal_dbos:
+    image: mysql:5.7
+    volumes: 
+      - drupal_mysql_storage:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_USER: siva
+      MYSQL_PASSWORD: sivanaik
+      MYSQL_DATABASE: drupal_db
+  
+
+  drupalos:
+    image: drupal:latest
+    restart: always
+    depends_on:
+      - drupal_dbos
+    ports:
+      - 8081:80
+    environment:
+      POSTGRES_DB: drupal_db
+      POSTGRES_USER: siva
+      POSTGRES_PASSWORD: sivanaik
+      POSTGRES_HOST: drupal_dbos
+    volumes:
+      - drupal_storage:/var/www/html
+      
+volumes:
+  drupal_mysql_storage:
+  drupal_storage:

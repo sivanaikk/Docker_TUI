@@ -1,0 +1,32 @@
+version: '3'
+services:
+  db_ghost:
+      image: mysql:5.7
+      volumes:
+        - db_storage_new:/var/lib/mysql
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: rootpass
+        MYSQL_USER: siva
+        MYSQL_PASSWORD: sivanaik
+        MYSQL_DATABASE: project_db
+
+
+  ghostos:
+      image: ghost:1-alpine
+      restart: always
+      depends_on:
+        - db_ghost
+      ports:
+        - 8089:2368
+      volumes:
+        - gh_storage_new:/var/lib/ghost
+      environment:
+        database_client: mysql
+        database_connection_host: db_ghost
+        database_connection_user: siva
+        database_connection_password: sivanaik
+        database_connection_database: project_db
+volumes:
+  db_storage_new:
+  gh_storage_new:

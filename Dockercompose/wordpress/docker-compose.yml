@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  dbos:
+    image: mysql:5.7
+    volumes: 
+      - mysql_storage_new:/var/lib/mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_USER: siva
+      MYSQL_PASSWORD: sivanaik
+      MYSQL_DATABASE: mydb
+  
+
+  wordpressos:
+    image: wordpress:5.1.1-php7.3-apache
+    restart: always
+    depends_on:
+      - dbos
+    ports:
+      - "8082:80"
+    environment:
+      WORDPRESS_DB_HOST: dbos
+      WORDPRESS_DB_USER: siva
+      WORDPRESS_DB_PASSWORD: sivanaik
+      WORDPRESS_DB_NAME: mydb
+    volumes:
+      - wp_storage_new:/var/www/html
+      
+volumes:
+  wp_storage_new:
+  mysql_storage_new:
