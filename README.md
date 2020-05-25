@@ -31,7 +31,7 @@ yum install python3-pip
 pip3 install webbrowser
 ```
 
-## About main,py
+## About main.py
 
 main python file.This file contain 6 main menus. These 6 menus are :
 #### MAIN MENU
