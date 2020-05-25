@@ -64,4 +64,4 @@ References :
 For Different figlet font trials visit : https://devhints.io/figlet
 
 Created a small script for different colors 
-![script](images/tput_setaf.png?raw=true)
+![script](images/script.png?raw=true)
