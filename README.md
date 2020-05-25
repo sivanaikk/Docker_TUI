@@ -58,6 +58,9 @@ main python file.This file contain 6 main menus. These 6 menus are :
 
 
 
-
-
 Thank You Vimal Daga sir for teaching the docker from very basics to the all way to Expertise Level.
+
+References :
+For Different figlet font trials visit : https://devhints.io/figlet
+Created a small script for different colors 
+![script](images/tput_setaf.png?raw=true)
