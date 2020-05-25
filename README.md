@@ -62,5 +62,6 @@ Thank You Vimal Daga sir for teaching the docker from very basics to the all way
 
 References :
 For Different figlet font trials visit : https://devhints.io/figlet
+
 Created a small script for different colors 
 ![script](images/tput_setaf.png?raw=true)
